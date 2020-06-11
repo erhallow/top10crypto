@@ -8,28 +8,28 @@ const Coin = ({ coins, isLoaded }) => {
   } else {
     return (
       <div>
-        <div className='titlebar container-fluid mb-2 mt-2'>
+        <div className='titlebar container-fluid mb-2 mt-2 desktopview'>
           <div className='row'>
             <div className='col mr-1 ml-1'> </div>
             <div className='col text-center border border-dark rounded-left rounded-right buttonbg text-white mr-1 ml-1'>
-              <span>Price ($)</span>
+              <span>Price</span>
             </div>
             <div className='col text-center border border-dark rounded-left rounded-right buttonbg text-white mr-1 ml-1'>
-              Dollar Change ($)
+              $ Change
             </div>
             <div className='col text-center border border-dark rounded-left rounded-right buttonbg text-white mr-1 ml-1'>
-              Percent Change (%)
+              % Change
             </div>
             <div className='col text-center border border-dark rounded-left rounded-right buttonbg text-white mr-1 ml-1'>
-              Dollar Volume ($)
+              $ Volume
             </div>
             <div className='col text-center border border-dark rounded-left rounded-right buttonbg text-white mr-1 ml-1'>
-              Last Updated (min)
+              Update
             </div>
           </div>
         </div>
         {coins.map((coin) => (
-          <CoinBox key={coin.name} coin={coin} />
+          <CoinBox key={coin.name} coin={coin} rank={coins.indexOf(coin) + 1} />
         ))}
       </div>
     );

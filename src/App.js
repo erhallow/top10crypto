@@ -43,8 +43,8 @@ class App extends Component {
   sortPercentChangeDesc() {
     const sortPercentDesc = [...this.state.coins].sort((a, b) => {
       return (
-        parseFloat(b.percentChange.replace(/[\$]/g, '')) -
-        parseFloat(a.percentChange.replace(/[\$]/g, ''))
+        parseFloat(b.percentChange.replace(/\$/g, '')) -
+        parseFloat(a.percentChange.replace(/\$/g, ''))
       );
     });
     this.setState({ coins: sortPercentDesc });
@@ -54,8 +54,8 @@ class App extends Component {
   sortPercentChangeAsc() {
     const sortPercentAsc = [...this.state.coins].sort((a, b) => {
       return (
-        parseFloat(a.percentChange.replace(/[\$]/g, '')) -
-        parseFloat(b.percentChange.replace(/[\$]/g, ''))
+        parseFloat(a.percentChange.replace(/\$/g, '')) -
+        parseFloat(b.percentChange.replace(/\$/g, ''))
       );
     });
     this.setState({ coins: sortPercentAsc });
@@ -65,8 +65,8 @@ class App extends Component {
   sortDollarDesc() {
     const sortedDesc = [...this.state.coins].sort((a, b) => {
       return (
-        parseFloat(b.dollarChange.replace(/[\$]/g, '')) -
-        parseFloat(a.dollarChange.replace(/[\$]/g, ''))
+        parseFloat(b.dollarChange.replace(/\$/g, '')) -
+        parseFloat(a.dollarChange.replace(/\$/g, ''))
       );
     });
     this.setState({ coins: sortedDesc });
@@ -76,11 +76,16 @@ class App extends Component {
   sortDollarAsc() {
     const sortedAsc = [...this.state.coins].sort((a, b) => {
       return (
-        parseFloat(a.dollarChange.replace(/[\$]/g, '')) -
-        parseFloat(b.dollarChange.replace(/[\$]/g, ''))
+        parseFloat(a.dollarChange.replace(/\$/g, '')) -
+        parseFloat(b.dollarChange.replace(/\$/g, ''))
       );
     });
     this.setState({ coins: sortedAsc });
+  }
+
+  getRank(arr, item) {
+    const rank = arr.indexOf(item) + 1;
+    return rank;
   }
 
   render() {
@@ -89,36 +94,103 @@ class App extends Component {
     return (
       <Fragment>
         <Navbar />
-        <div className='btn-group btn-group-toggle ml-2 mt-2'>
+        {/* Small Mobile View Buttons */}
+
+        <div className='text-center smallmobileview'>
+          <div className='btn-group btn-group-toggle ml-2 mt-2'>
+            <button
+              className='btn btn-outline-dark btn-rounded'
+              onClick={() => this.sortDollarAsc()}
+            >
+              $∆<i className='fas fa-arrow-up'></i>
+            </button>
+            <button
+              className='btn btn-outline-dark'
+              onClick={() => this.sortDollarDesc()}
+            >
+              $∆<i className='fas fa-arrow-down'></i>
+            </button>
+            <button
+              className='btn btn-outline-dark'
+              onClick={() => this.sortPercentChangeAsc()}
+            >
+              %∆<i className='fas fa-arrow-up'></i>
+            </button>
+            <button
+              className='btn btn-outline-dark'
+              onClick={() => this.sortPercentChangeDesc()}
+            >
+              %∆<i className='fas fa-arrow-down'></i>
+            </button>
+          </div>
+        </div>
+
+        {/*Mobile View Buttons*/}
+
+        <div className='text-center mobileview end'>
+          <div className='btn-group btn-group-toggle ml-2 mt-2'>
+            <button
+              className='btn btn-outline-dark btn-rounded'
+              onClick={() => this.sortDollarAsc()}
+            >
+              $CHG<i className='fas fa-arrow-up'></i>
+            </button>
+            <button
+              className='btn btn-outline-dark'
+              onClick={() => this.sortDollarDesc()}
+            >
+              $CHG<i className='fas fa-arrow-down'></i>
+            </button>
+            <button
+              className='btn btn-outline-dark'
+              onClick={() => this.sortPercentChangeAsc()}
+            >
+              %CHG<i className='fas fa-arrow-up'></i>
+            </button>
+            <button
+              className='btn btn-outline-dark'
+              onClick={() => this.sortPercentChangeDesc()}
+            >
+              %CHG<i className='fas fa-arrow-down'></i>
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop View Buttons*/}
+
+        <div className='btn-group btn-group-toggle ml-2 mt-2 desktopview'>
           <button
             className='btn btn-outline-dark btn-rounded'
             onClick={() => this.sortDollarAsc()}
           >
-            Dollar Ascending
+            $CHG
             <i className='fas fa-arrow-up'></i>
           </button>
           <button
             className='btn btn-outline-dark'
             onClick={() => this.sortDollarDesc()}
           >
-            Dollar Descending
+            $CHG
             <i className='fas fa-arrow-down'></i>
           </button>
           <button
             className='btn btn-outline-dark'
             onClick={() => this.sortPercentChangeAsc()}
           >
-            Percent Change Ascending
+            %CHG
             <i className='fas fa-arrow-up'></i>
           </button>
           <button
             className='btn btn-outline-dark'
             onClick={() => this.sortPercentChangeDesc()}
           >
-            Percent Change Descending
+            %CHG
             <i className='fas fa-arrow-down'></i>
           </button>
         </div>
+
+        {/* Coinbox Cards Desktop + Mobile */}
+
         <div className='container-fluid'>
           <Coin isLoaded={isLoaded} coins={coins} />
         </div>
