@@ -19,7 +19,12 @@
 
 .card {
   border: 5px solid #2c3e50;
-  box-shadow: 4px 3px #aaadc2;
+  box-shadow: 5px 3px #aaadc2;
+}
+
+.resizeimg {
+  max-width: 45%;
+  height: auto;
 }
 
 @media screen and (max-width: 1250px) {
@@ -29,25 +34,92 @@
 }
 
 @media screen and (max-width: 800px) {
-  .desktopview {
+  .desktopview,
+  .browsertitle {
     display: none;
   }
 }
 
+@media screen and (min-width: 800px) {
+  .cardview,
+  .mobiletitle {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) and (min-width: 539px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+}
+
+/* End Buttons */
 @media screen and (max-width: 380px) {
   .end {
     display: none;
   }
 }
 
-@media screen and (min-width: 800px) {
-  .mobileview {
-    display: none;
-  }
-}
-
+/* Small Mobile View ∆ Buttons */
 @media screen and (min-width: 380px) {
   .smallmobileview {
     display: none;
   }
 }
+
+/* Delete CHG Symbol from $CHG / %CHG in card */
+@media screen and (max-width: 690px) {
+  .volformat {
+    display: none;
+  }
+}
+
+/* Add ∆ symbol to card */
+@media screen and (min-width: 689px) {
+  .addchangesymbol {
+    display: none;
+  }
+}
+
+/* Icon Overlay */
+
+/* .container-overlay {
+  position: relative;
+  width: 50%;
+}
+
+.overlay-icon {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.35s ease-in;
+  background-color: white;
+}
+
+.container-overlay:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  color: #20254b;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+} */

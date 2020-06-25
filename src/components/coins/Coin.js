@@ -28,9 +28,15 @@ const Coin = ({ coins, isLoaded }) => {
             </div>
           </div>
         </div>
-        {coins.map((coin) => (
-          <CoinBox key={coin.name} coin={coin} rank={coins.indexOf(coin) + 1} />
-        ))}
+        <div className='grid'>
+          {coins.map((coin) => (
+            <CoinBox
+              key={coin.name}
+              coin={coin}
+              rank={coins.indexOf(coin) + 1}
+            />
+          ))}
+        </div>
       </div>
     );
   }

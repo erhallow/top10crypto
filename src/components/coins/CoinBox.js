@@ -56,7 +56,7 @@ const CoinBox = ({
           <div className='container'>
             <div className='row'>
               <div className='col-sm'>
-                <h3>{name}</h3>
+                <h4>{name}</h4>
               </div>
 
               <div className='col-sm'>
@@ -101,28 +101,34 @@ const CoinBox = ({
         </div>
       </div>
 
-      {/* Mobile View */}
+      {/* Card View */}
 
       <div className='row d-flex justify-content-center'>
-        <div className='card w-75 justify-content-center rounded mobileview'>
-          <img className='card-img-top' src={image} alt={name} />
-          <div className='card-body'>
+        <div className='card w-75 justify-content-center rounded cardview'>
+          <div className='text-center pt-1 pb-0'>
+            <img className='card-img-top resizeimg' src={image} alt={name} />
+          </div>
+
+          <div className='card-body pt-1'>
             <div className='card-title text-center text-white background'>
-              <div>#{rank}</div>
-              <div>{name}</div>
+              <h5>
+                #{rank}&nbsp;&nbsp;&nbsp;{name}
+              </h5>
             </div>
             <ul className='list-group list-group-flush text-center'>
-              <li className='list-group-item'>PRC: {price} </li>
+              <li className='list-group-item'>{price}</li>
               <li className='list-group-item' style={dollarChangeStyle}>
-                $ CHG: {dollarChange}
+                {dollarChange}
               </li>
               <li className='list-group-item' style={percentChangeStyle}>
-                % CHG: %{percentChange}
+                %{percentChange}
               </li>
-              <li className='list-group-item'>VOL: ${newVolumeFormat}</li>
+              <li className='list-group-item'>
+                V<span className='volformat'>OL</span>: ${newVolumeFormat}
+              </li>
               <li className='list-group-item'>
                 <a href={reviewURL} target='_blank' rel='noopener noreferrer'>
-                  UPD: {lastUpdate}
+                  {lastUpdate}
                 </a>
               </li>
             </ul>
@@ -132,4 +138,5 @@ const CoinBox = ({
     </div>
   );
 };
+
 export default CoinBox;

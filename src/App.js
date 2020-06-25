@@ -127,7 +127,7 @@ class App extends Component {
 
         {/*Mobile View Buttons*/}
 
-        <div className='text-center mobileview end'>
+        <div className='text-center cardview end'>
           <div className='btn-group btn-group-toggle ml-2 mt-2'>
             <button
               className='btn btn-outline-dark btn-rounded'
