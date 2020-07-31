@@ -116,21 +116,36 @@ const CoinBox = ({
               </h5>
             </div>
             <ul className='list-group list-group-flush text-center'>
-              <li className='list-group-item'>{price}</li>
-              <li className='list-group-item' style={dollarChangeStyle}>
-                {dollarChange}
-              </li>
-              <li className='list-group-item' style={percentChangeStyle}>
-                %{percentChange}
-              </li>
-              <li className='list-group-item'>
-                V<span className='volformat'>OL</span>: ${newVolumeFormat}
-              </li>
-              <li className='list-group-item'>
-                <a href={reviewURL} target='_blank' rel='noopener noreferrer'>
-                  {lastUpdate}
-                </a>
-              </li>
+              <div className='icon-wrap'>
+                <li className='list-group-item'>P {price}</li>
+                <span className='icon-description p-2'>Price</span>
+              </div>
+              <div className='icon-wrap'>
+                <li className='list-group-item' style={dollarChangeStyle}>
+                  ∆{dollarChange}{' '}
+                </li>
+                <span className='icon-description p-2'>$ Change</span>
+              </div>
+              <div className='icon-wrap'>
+                <li className='list-group-item' style={percentChangeStyle}>
+                  ∆% {percentChange}
+                </li>
+                <span className='icon-description p-2'>% Change</span>
+              </div>
+              <div className='icon-wrap'>
+                <li className='list-group-item'>
+                  V<span className='volformat'>OL</span> ${newVolumeFormat}
+                </li>
+                <span className='icon-description p-2'>Price</span>
+              </div>
+              <div className='icon-wrap'>
+                <li className='list-group-item'>
+                  <a href={reviewURL} target='_blank' rel='noopener noreferrer'>
+                    {lastUpdate}
+                  </a>
+                </li>
+                <span className='icon-description p-2'>Last Updated</span>
+              </div>
             </ul>
           </div>
         </div>

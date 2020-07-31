@@ -95,7 +95,6 @@ class App extends Component {
       <Fragment>
         <Navbar />
         {/* Small Mobile View Buttons */}
-
         <div className='text-center smallmobileview'>
           <div className='btn-group btn-group-toggle ml-2 mt-2'>
             <button
